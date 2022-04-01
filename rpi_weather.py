@@ -34,12 +34,12 @@ class RpiWeather():
         """Clear specified matrix. If none specified, clear all."""
         if matrix == None:
             for m in self.matrix:
-                m.clear()
+                m.fill(0)
                 m.show()
         else:
             if not self.is_valid_matrix(matrix):
                 return
-            self.matrix[matrix].clear()
+            self.matrix[matrix].fill(0)
             self.matrix[matrix].show()
             
     def set_pixel(self, x, y, matrix=0, value=1):
@@ -62,7 +62,7 @@ class RpiWeather():
         """Set specified matrix to bitmap defined by 64 bit value."""
         if not self.is_valid_matrix(matrix):
             return        
-        self.matrix[matrix].clear()
+        self.matrix[matrix].fill(0)
         for y in range(8):
             row_byte = value >> (8*y)
             for x in range(8):
