@@ -33,7 +33,7 @@ def update_display(new_val, old_val):
         return
     if new_val == old_val:
         return
-    for i in xrange(3,-1,-1):
+    for i in range(3,-1,-1):
         new_d = new_val % 10
         old_d = old_val % 10
         if i == 0 and new_d == 0:
