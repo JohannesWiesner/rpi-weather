@@ -16,10 +16,10 @@ class RpiWeather():
     
     def __init__(self, ):
         self.matrix = []
-        self.matrix.append(matrix.Matrix8x8(address=0x70, busnum=1))
-        self.matrix.append(matrix.Matrix8x8(address=0x71, busnum=1))
-        self.matrix.append(matrix.Matrix8x8(address=0x72, busnum=1))
-        self.matrix.append(matrix.Matrix8x8(address=0x73, busnum=1))
+        self.matrix.append(matrix.Matrix8x8(address=0x70))
+        self.matrix.append(matrix.Matrix8x8(address=0x71))
+        self.matrix.append(matrix.Matrix8x8(address=0x72))
+        self.matrix.append(matrix.Matrix8x8(address=0x73))
 
     def is_valid_matrix(self, matrix):
         """Returns True if matrix number is valid, otherwise False."""
