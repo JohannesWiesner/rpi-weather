@@ -8,18 +8,23 @@
 #===============================================================================
 from time import sleep
 
+import board
+import busio
 from adafruit_ht16k33 import matrix
 from led8x8icons import LED8x8ICONS
+
+# Create the I2C interface.
+i2c = busio.I2C(board.SCL, board.SDA)
 
 class RpiWeather():
     """Class for interfacing to Raspberry Pi with four Adafruit 8x8 LEDs attached."""
     
     def __init__(self, ):
         self.matrix = []
-        self.matrix.append(matrix.Matrix8x8(address=0x70))
-        self.matrix.append(matrix.Matrix8x8(address=0x71))
-        self.matrix.append(matrix.Matrix8x8(address=0x72))
-        self.matrix.append(matrix.Matrix8x8(address=0x73))
+        self.matrix.append(matrix.Matrix8x8(i2c,address=0x70))
+        self.matrix.append(matrix.Matrix8x8(i2c,address=0x71))
+        self.matrix.append(matrix.Matrix8x8(i2c,address=0x72))
+        self.matrix.append(matrix.Matrix8x8(i2c,address=0x73))
 
     def is_valid_matrix(self, matrix):
         """Returns True if matrix number is valid, otherwise False."""
