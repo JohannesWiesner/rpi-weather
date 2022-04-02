@@ -84,7 +84,8 @@ class RpiWeather():
             sleep(delay)   
         
     def disp_number(self, number):
-        """Display number as integer. Valid range is 0 to 9999."""
+        """Display number as integer using up to all four matrices. 
+        Valid range is 0 to 9999."""
         num = int(number)
         if num > 9999 or num < 0:
             return
@@ -93,5 +94,5 @@ class RpiWeather():
         while num:
             digit = num % 10
             self.set_raw64(LED8x8ICONS['{0}'.format(digit)], matrix)
-            num /= 10
+            num //= 10
             matrix -= 1
