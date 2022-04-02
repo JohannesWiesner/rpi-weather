@@ -5,7 +5,11 @@ Spyder Editor
 Dies ist eine temporäre Skriptdatei.
 """
 
+import sys
+sys.path.append('../')
 import time
+from led8x8icons import LED8x8ICONS as ICONS
+
 
 def time2int(time_struct, format24=False):
     """Convert time, passed in as a time.struct_time object, to an integer with
@@ -21,6 +25,3 @@ def time2int(time_struct, format24=False):
     return h*100+m
 
 local_time = time.localtime()
-
-
-new_val = time2int(time.localtime())
