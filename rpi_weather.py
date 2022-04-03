@@ -6,8 +6,7 @@
 # 2015-04-15
 # Carter Nelson
 #===============================================================================
-from time import sleep
-
+import time
 import board
 import busio
 from adafruit_ht16k33 import matrix
@@ -81,7 +80,7 @@ class RpiWeather():
             new_row = (new_row << 7 | new_row >> 1) & 0xff  #fix for memory buffer error
             self.matrix[matrix].buffer[0] = new_row
             self.matrix[matrix].show()
-            sleep(delay)   
+            time.sleep(delay)   
         
     def disp_number(self, number):
         """Display number as integer using up to all four matrices. 
