@@ -40,9 +40,9 @@ ICON_MAP = {
 
 def giveup():
     """Action to take if anything bad happens."""
-    for matrix in xrange(4):
+    for matrix in range(4):
         display.set_raw64(LED8x8ICONS['UNKNOWN'],matrix)
-    print "Error occured."
+    print("Error occured.")
     sys.exit(1)
     
 def read_config(filename):
@@ -87,18 +87,18 @@ def print_forecast(forecast=None):
     """Print forecast to screen."""
     if forecast == None:
         return
-    print '-'*20
-    print time.strftime('%Y/%m/%d %H:%M:%S')
-    print "LAT: {0}  LON: {1}".format(LAT,LON)
-    print '-'*20
+    print('-'*20)
+    print(time.strftime('%Y/%m/%d %H:%M:%S'))
+    print("LAT: {0}  LON: {1}".format(LAT,LON))
+    print('-'*20)
     for daily in forecast:
-        print daily
+        print(daily)
 
 def display_forecast(forecast=None):
     """Display forecast as icons on LED 8x8 matrices."""
     if forecast == None:
         return
-    for matrix in xrange(4):
+    for matrix in range(4):
         try:
             icon = ICON_MAP[forecast[matrix]]
             display.set_raw64(LED8x8ICONS[icon], matrix)
