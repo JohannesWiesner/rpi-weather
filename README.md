@@ -1,13 +1,13 @@
 # rpi-weather
 ![thumbnail](http://caternuson.github.io/rpi-weather/static/rpi-weather-thumb.jpg)<br/>
-Python 2.7 application to get local weather forecast and display results
+Python 3.9 application to get local weather forecast and display results
 via icons on LED 8x8 matrices.
 
 # Hardware
 This program should work with any Raspberry Pi although I have only tested it
 with an original Model A (yes, an A). Also, any 4 Adafruit 8x8 LED
-Matrices with I2C Backpacks should work. Be sure to solder the address jumpers
-to set unique addresses for each. Expected range is 0x70-0x73.
+Matrices with I2C Backpacks should work. Be sure to [solder the address jumpers](https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address)
+to set unique addresses for each. Expected range is 0x70-0x73. The wodden case has roughly these dimensions: 19cm (L) x 13cm (W) x 8cm (H). Make sure you solder the pins of the matrices in the right direction for this project (in other words, DO NOT follow the soldering instructions as presented in [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-assembly), the pins have to be the other way around )
 
 # Software
 A brief description of the various software components.
@@ -20,8 +20,10 @@ A brief description of the various software components.
 * ```clock.py``` - displays the time, for use as a clock
 
 # Dependencies
-*  Adafruit Python Library for LED Backpacks
-    * https://github.com/adafruit/Adafruit_Python_LED_Backpack
+*  [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33)
+    *  First follow this tutorial: https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi (Instead of following the steps in "4. Activate SSH-Support", I can recommend to use the alternative method using the [rpi-imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) wich automatically sets up the SSH support for you)
+    *  Then follow this tutorial: https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup
+ 
 
 # Install
 Simply clone this repo and run:
