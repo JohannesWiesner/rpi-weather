@@ -8,10 +8,10 @@
 # Carter Nelson
 #===============================================================================
 import time
-import httplib
+import http.client
 import sys
 import json
-import ConfigParser
+import configparser
 
 from rpi_weather import RpiWeather
 from led8x8icons import LED8x8ICONS
@@ -46,7 +46,7 @@ def giveup():
     sys.exit(1)
     
 def read_config(filename):
-    config = ConfigParser.RawConfigParser()
+    config = configparser.RawConfigParser()
     global APIKEY, LAT, LON
     try:
         config.read(filename)
@@ -63,7 +63,7 @@ def make_openweather_request():
                         "mode=json&" + \
                         "APPID={0}".format(APIKEY)
     try:
-        conn = httplib.HTTPConnection(OPENWEATHER_URL)
+        conn = http.client.HTTPConnection(OPENWEATHER_URL)
         conn.request("GET", REQUEST)
         resp = conn.getresponse()
         data = resp.read()
