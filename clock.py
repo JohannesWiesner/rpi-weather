@@ -41,8 +41,8 @@ def update_display(new_val, old_val):
             display.scroll_raw64(ICONS['ALL_OFF'], i)           
         elif new_d != old_d:
             display.scroll_raw64(ICONS['{0}'.format(new_d)], i)
-        new_val /= 10
-        old_val /= 10
+        new_val //= 10
+        old_val //= 10
 
 #-------------------------------------------------------------------------------
 #  M A I N
