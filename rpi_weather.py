@@ -78,7 +78,7 @@ class RpiWeather():
                 self.matrix[matrix]._set_buffer(i=old_row*2,value=self.matrix[matrix]._get_buffer(i=(old_row-1)*2)) 
             new_row = (value >> (8*step)) & 0xff
             new_row = (new_row << 7 | new_row >> 1) & 0xff  #fix for memory buffer error
-            self.matrix[matrix].buffer[0] = new_row
+            self.matrix[matrix]._set_buffer(i=0,value=new_row)
             self.matrix[matrix].show()
             time.sleep(delay)   
         
