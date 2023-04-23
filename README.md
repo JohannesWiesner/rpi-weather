@@ -6,9 +6,7 @@ via icons on LED 8x8 matrices.
 # Hardware
 This program should work with any Raspberry Pi although I have only tested it
 with an original Model A (yes, an A). Also, any 4 Adafruit 8x8 LED
-Matrices with I2C Backpacks should work. Be sure to [solder the address jumpers](https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address)
-to set unique addresses for each. Expected range is 0x70-0x73. The wodden case has roughly these dimensions: 19cm (L) x 13cm (W) x 8cm (H). Make sure you solder the pins of the matrices in the right direction for this project (in other words, DO NOT follow the soldering instructions as presented in [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-assembly), the pins have to be the other way around )
-
+Matrices with I2C Backpacks should work. Be sure to [solder the address jumpers](https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address#changing-addresses-706265) to set unique addresses for each. Expected range is 0x70-0x73. The wodden case has roughly these dimensions: 19cm (L) x 13cm (W) x 8cm (H). Make sure you solder the pins of the matrices in the right direction for this project (in other words, **do not** follow the soldering instructions as presented in [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-assembly), the pins have to be the other way around )
 # Software
 A brief description of the various software components.
 * ```weather.py``` - gets and displays forecast from [NOAA](http://graphical.weather.gov/xml/rest.php) (**US ONLY**)
@@ -19,11 +17,12 @@ A brief description of the various software components.
 * ```led8x8icons.py``` - contains a dictionary of icons
 * ```clock.py``` - displays the time, for use as a clock
 
-# Dependencies
-*  [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33)
-    *  First follow this tutorial: https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi (Instead of following the steps in "4. Activate SSH-Support", I can recommend to use the alternative method using the [rpi-imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) wich automatically sets up the SSH support for you)
-    *  Then follow this tutorial: https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup
- 
+
+# Setup your Rasperry PI
+ I can recommend to first follow [this tutorial](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi) to setup your Rasperry Pi. Instead of following the step "4. Activate SSH-Support", I can recommend to use the alternative method using the [rpi-imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) wich automatically sets up the SSH support for you. Now you can just ssh into your Pi without having to connect a monitor, mouse and keyboard.
+
+ # Dependencies
+You need to install the [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33#installing-from-pypi) so that your Rasperry Pi can communicate with the Adafruit LED matrices. For that you can follow [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup).
 
 # Install
 Simply clone this repo and run:
@@ -61,7 +60,7 @@ with the following contents:
 API_KEY: your_api_key
 LOCATION_ID: your_location_id
 ```
-replacing the ```your_*``` info as needed. 
+replacing the ```your_*``` info as needed.
 
 # Configure (forecast.io and openweathermap.org)
 You will need an API key to use these services. Each website has instructions
