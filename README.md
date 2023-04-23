@@ -7,11 +7,9 @@ via icons on LED 8x8 matrices.
 # Hardware
 
 ## Overview
-Here's a general overview about the hardware setup to give you some orientation: https://caternuson.github.io/rpi-weather/. The wodden case has roughly these dimensions: 19cm (length) x 13cm (width) x 8cm (height).
+Here's a general overview about the hardware setup to give you some orientation: https://caternuson.github.io/rpi-weather/. The wodden case has roughly these dimensions: 19cm (length) x 13cm (width) x 8cm (height). The jumper cables should have a length of 16-18 cm.
 
-This program should work with any Raspberry Pi although I have only tested it
-with an original Model A (yes, an A). Also, any 4 Adafruit 8x8 LED
-Matrices with I2C Backpacks should work.
+This program should work with any Raspberry Pi although I have only tested it with an original Model A (yes, an A). Also, any 4 Adafruit 8x8 LED Matrices with I2C Backpacks should work.
 
 ## Soldering the address jumpers
 Be sure to [solder the address jumpers](https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address#changing-addresses-706265) to set unique addresses for each. Expected range is 0x70-0x73. Make sure you solder the pins of the matrices in the right direction for this project (in other words, **do not** follow the soldering instructions as presented in [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-assembly), the pins have to be the other way around )
