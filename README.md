@@ -1,12 +1,20 @@
+
 # rpi-weather
 ![thumbnail](http://caternuson.github.io/rpi-weather/static/rpi-weather-thumb.jpg)<br/>
 Python 3.9 application to get local weather forecast and display results
 via icons on LED 8x8 matrices.
 
 # Hardware
+
+## Overview
+Here's a general overview about the hardware setup to give you some orientation: https://caternuson.github.io/rpi-weather/. The wodden case has roughly these dimensions: 19cm (length) x 13cm (width) x 8cm (height).
+
 This program should work with any Raspberry Pi although I have only tested it
 with an original Model A (yes, an A). Also, any 4 Adafruit 8x8 LED
-Matrices with I2C Backpacks should work. Be sure to [solder the address jumpers](https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address#changing-addresses-706265) to set unique addresses for each. Expected range is 0x70-0x73. The wodden case has roughly these dimensions: 19cm (L) x 13cm (W) x 8cm (H). Make sure you solder the pins of the matrices in the right direction for this project (in other words, **do not** follow the soldering instructions as presented in [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-assembly), the pins have to be the other way around )
+Matrices with I2C Backpacks should work.
+
+## Soldering the address jumpers
+Be sure to [solder the address jumpers](https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address#changing-addresses-706265) to set unique addresses for each. Expected range is 0x70-0x73. Make sure you solder the pins of the matrices in the right direction for this project (in other words, **do not** follow the soldering instructions as presented in [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-assembly), the pins have to be the other way around )
 # Software
 A brief description of the various software components.
 * ```weather.py``` - gets and displays forecast from [NOAA](http://graphical.weather.gov/xml/rest.php) (**US ONLY**)
@@ -16,12 +24,7 @@ A brief description of the various software components.
 * ```rpi_weather.py``` - defines a class for interfacing with the hardware
 * ```led8x8icons.py``` - contains a dictionary of icons
 * ```clock.py``` - displays the time, for use as a clock
-
-
-# Setup your Rasperry PI
- I can recommend to first follow [this tutorial](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi) to setup your Rasperry Pi. Instead of following the step "4. Activate SSH-Support", I can recommend to use the alternative method using the [rpi-imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) wich automatically sets up the SSH support for you. Now you can just ssh into your Pi without having to connect a monitor, mouse and keyboard.
-
- # Dependencies
+# Dependencies
 You need to install the [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33#installing-from-pypi) so that your Rasperry Pi can communicate with the Adafruit LED matrices. For that you can follow [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup).
 
 # Install
