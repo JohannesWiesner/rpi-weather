@@ -23,8 +23,11 @@ A brief description of the various software components.
 * ```led8x8icons.py``` - contains a dictionary of icons
 * ```clock.py``` - displays the time, for use as a clock
 # Dependencies
-You need to install the [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33#installing-from-pypi) so that your Rasperry Pi can communicate with the Adafruit LED matrices. For that you can follow [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup). Before you do that it is convenient to set up 
-your raspberry pi using [the rpi imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) (so you can ssh into it)
+
+Optional: Before installing any software, it is convenient to set up  your raspberry pi using [the rpi imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) (so you can ssh into it, or even use a remote desktop client to get a graphical user interface). If you are using Windows on your hostmachine and you want to use the Remote Desktop Client make sure that `xrdp` is installed on the pi by running `sudo apt install xrdp`.
+
+You need to then install Python & the [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33#installing-from-pypi) so that your Rasperry Pi can communicate with the Adafruit LED matrices. For that you can follow [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup). 
+
 
 # Install
 Simply clone this repo and run:
