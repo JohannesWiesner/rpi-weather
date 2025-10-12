@@ -61,7 +61,7 @@ def make_openweather_request():
     REQUEST = REQ_BASE + "lat={0}&".format(LAT) + \
                         "lon={0}&".format(LON) + \
                         "mode=json&" + \
-                        "APPID={0}".format(APIKEY)
+                        "appid={0}".format(APIKEY)
     try:
         conn = http.client.HTTPConnection(OPENWEATHER_URL)
         conn.request("GET", REQUEST)

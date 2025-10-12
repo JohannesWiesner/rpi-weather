@@ -14,7 +14,7 @@ from led8x8icons import LED8x8ICONS as ICONS
 
 display = RpiWeather()
 
-def time2int(time_struct, format24=False):
+def time2int(time_struct, format24=True):
     """Convert time, passed in as a time.struct_time object, to an integer with
     hours in the hundreds place and minutes in the units place. Returns 24
     hour format if format24 is True, 12 hour format (default) otherwise.

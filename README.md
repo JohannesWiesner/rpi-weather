@@ -26,15 +26,25 @@ A brief description of the various software components.
 
 Optional: Before installing any software, it is convenient to set up  your raspberry pi using [the rpi imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) (so you can ssh into it, or even use a remote desktop client to get a graphical user interface). If you are using Windows on your hostmachine and you want to use the Remote Desktop Client make sure that `xrdp` is installed on the pi by running `sudo apt install xrdp`.
 
-You need to then install Python & the [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33#installing-from-pypi) so that your Rasperry Pi can communicate with the Adafruit LED matrices. For that you can follow [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup). 
+# Dependencies
+You need to then install Python & the [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33#installing-from-pypi) 
+so that your Rasperry Pi can communicate with the Adafruit LED matrices. For that you can follow [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup). 
 
+Specifically, install:
+
+```
+pip3 install adafruit-circuitpython-ht16k33
+pip install RPi.GPIO # might be needed
+``
+
+Make sure you enabled IC2 in your raspi settings.
 
 # Install
 Simply clone this repo and run:
 ```
 $ git clone https://github.com/caternuson/rpi-weather.git
 $ cd rpi-weather
-$ sudo python weather.py
+$ sudo python weather_noaa.py
 ```
 
 # Configure (NOAA)
@@ -46,7 +56,7 @@ ZIPCODE = 98109
 A zipcode can also be passed in from the command line, which will override the
 default:
 ```
-$ sudo python weather.py 98109
+$ sudo python weather_noaa.py 98109
 ```
 
 # Configure (metoffice.gov.uk)
@@ -86,7 +96,7 @@ The easiest way to have the program run on a daily basis is to use ```cron```.
 Use ```crontab -e``` to add the following entry, which will run the program
 every morning at 4AM:
 ```
-0 4 * * * sudo -E PYTHONPATH=$PYTHONPATH python /home/pi/rpi-weather/weather.py
+0 4 * * * sudo -E PYTHONPATH=$PYTHONPATH python /home/pi/rpi-weather/weather_noaa.py
 ```
 **NOTE:** If you installed the program in a different location, change the path
 accordingly.

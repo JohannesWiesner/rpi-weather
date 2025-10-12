@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Apr  2 19:38:03 2022
+Just a simple testscript that displays 1 2 3 4 on the led-matrices
 
-@author: johwi
+@author: JohannesWiesner
 """
 
 import sys
 sys.path.append('../')
-
-
 from rpi_weather import RpiWeather
 from led8x8icons import LED8x8ICONS as ICONS
 
 display = RpiWeather()
 number = 1234
-
 display.disp_number(number)
