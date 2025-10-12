@@ -34,7 +34,7 @@ def giveup():
     """Action to take if anything bad happens."""
     for matrix in xrange(4):
         display.set_raw64(LED8x8ICONS['UNKNOWN'],matrix)
-    print "Error occured."
+    print("Error occured.")
     sys.exit(1)
     
 def validate_zip(zip_arg):
@@ -79,7 +79,7 @@ def get_noaa_forecast():
         giveup()
         
     if len(vals) < 2*NUM_DAYS:
-        print "Request-Result Mismatch: REQ=%d RES=%d" % (NUM_DAYS,len(vals))
+        print("Request-Result Mismatch: REQ=%d RES=%d" % (NUM_DAYS,len(vals)))
         giveup()
         
     if '12' in TIME_FORMAT:
@@ -95,12 +95,12 @@ def print_forecast(forecast=None):
     """Print forecast to screen."""
     if forecast == None:
         return
-    print '-'*20
-    print time.strftime('%Y/%m/%d %H:%M:%S')
-    print "ZIPCODE {0}".format(ZIPCODE)
-    print '-'*20
+    print('-'*20)
+    print(time.strftime('%Y/%m/%d %H:%M:%S'))
+    print("ZIPCODE {0}".format(ZIPCODE))
+    print('-'*20)
     for daily in forecast:
-        print daily
+        print(daily)
         
 def display_forecast(forecast=None):
     """Display forecast as icons on LED 8x8 matrices."""
