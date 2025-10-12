@@ -15,7 +15,7 @@ This program should work with any Raspberry Pi although I have only tested it wi
 Be sure to [solder the address jumpers](https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address#changing-addresses-706265) to set unique addresses for each. Expected range is 0x70-0x73. Make sure you solder the pins of the matrices in the right direction for this project (in other words, **do not** follow the soldering instructions as presented in [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-assembly), the pins have to be the other way around )
 # Software
 A brief description of the various software components.
-* ```weather.py``` - gets and displays forecast from [NOAA](http://graphical.weather.gov/xml/rest.php) (**US ONLY**)
+* ```weather_noaa.py``` - gets and displays forecast from [NOAA](http://graphical.weather.gov/xml/rest.php) (**US ONLY**)
 * ```weather_metoffice.py``` - gets and displays forecast from [metoffice.gov.uk](http://metoffice.gov.uk) (**UK ONLY**)
 * ```weather_forecastio.py``` - gets and displays forecast from [forecast.io](http://forecast.io)
 * ```weather_openweather.py``` - gets and displays forecast from [openweathermap.org](http://openweathermap.org)
@@ -24,20 +24,20 @@ A brief description of the various software components.
 * ```clock.py``` - displays the time, for use as a clock
 # Dependencies
 
-Optional: Before installing any software, it is convenient to set up  your raspberry pi using [the rpi imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) (so you can ssh into it, or even use a remote desktop client to get a graphical user interface). If you are using Windows on your hostmachine and you want to use the Remote Desktop Client make sure that `xrdp` is installed on the pi by running `sudo apt install xrdp`.
+Optional: Before installing any software, it is convenient to set up  your raspberry pi using [the rpi imager](https://learn.adafruit.com/raspberry-pi-zero-creation/using-rpi-imager) (so you can ssh into it, or even use a remote desktop client to get a graphical user interface). If you want to use a Remote Desktop Client make sure that `xrdp` is installed on your raspi by running `sudo apt install xrdp`.
 
 # Dependencies
 You need to then install Python & the [Adafruit_CircuitPython_HT16K33 Library](https://github.com/adafruit/Adafruit_CircuitPython_HT16K33#installing-from-pypi) 
-so that your Rasperry Pi can communicate with the Adafruit LED matrices. For that you can follow [this tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup). 
+so that your Rasperry Pi can communicate with the Adafruit LED matrices.
 
 Specifically, install:
 
 ```
 pip3 install adafruit-circuitpython-ht16k33
 pip install RPi.GPIO # might be needed
-``
+```
 
-Make sure you enabled IC2 in your raspi settings.
+Make sure you enabled IC2 in your raspi settings (see this [tutorial](https://learn.adafruit.com/adafruit-led-backpack/0-8-8x8-matrix-python-wiring-and-setup#python-installation-of-ht16k33-library-3051797) for more info)
 
 # Install
 Simply clone this repo and run:
