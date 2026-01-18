@@ -101,6 +101,23 @@ every morning at 4AM:
 **NOTE:** If you installed the program in a different location, change the path
 accordingly.
 
+## Automation of clock.py
+
+If you want to run `clock.py` on the raspi, make sure the script does not start before
+the raspi has the correct local time:
+
+```
+#!/bin/bash
+set -euo pipefail
+
+# Wait until NTP has synchronized the system clock
+until timedatectl show -p NTPSynchronized --value 2>/dev/null | grep -q yes; do
+  sleep 5
+done
+
+sudo -E PYTHONPATH=$PYTHONPATH python /home/pi/rpi-weather/weather_noaa.py python /home/pi/rpi-weather/rpi-weather/clock.py
+```
+
 # NOAA REST
 The forecast is determined using the [NOAA REST](http://graphical.weather.gov/xml/rest.php)
 web service. Specifically, the **Summarized Data for One or More Zipcodes**. A
