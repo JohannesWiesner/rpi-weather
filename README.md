@@ -106,7 +106,7 @@ accordingly.
 If you want to run `clock.py` on the raspi, make sure the script does not start before
 the raspi has the correct local time:
 
-```
+```bash
 #!/bin/bash
 set -euo pipefail
 
